@@ -1,0 +1,571 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B4382ED222393DB0006F82D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4382EC222393DB0006F82D /* LaunchScreen.storyboard */; };
+		8B6305A4222130BD005DA26F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305A3222130BD005DA26F /* AppDelegate.swift */; };
+		8B6305BD22213714005DA26F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B6305BC22213713005DA26F /* Assets.xcassets */; };
+		8B6305CC22213810005DA26F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305CA22213810005DA26F /* HomeVC.swift */; };
+		8B6305CD22213810005DA26F /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6305CB22213810005DA26F /* HomeVC.xib */; };
+		8B6305D0222138D4005DA26F /* HomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305CE222138D4005DA26F /* HomeListCell.swift */; };
+		8B6305D1222138D4005DA26F /* HomeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6305CF222138D4005DA26F /* HomeListCell.xib */; };
+		8B6305D622213AC6005DA26F /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305D522213AC6005DA26F /* NetworkServices.swift */; };
+		8B6305D8222146DB005DA26F /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305D7222146DB005DA26F /* ResponseModel.swift */; };
+		8B6305DA222149B9005DA26F /* RestAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305D9222149B9005DA26F /* RestAPIServices.swift */; };
+		8B6305DD22215114005DA26F /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305DB22215114005DA26F /* DetailVC.swift */; };
+		8B6305DE22215114005DA26F /* DetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6305DC22215114005DA26F /* DetailVC.xib */; };
+		8B6305E022215269005DA26F /* RealmServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305DF22215269005DA26F /* RealmServices.swift */; };
+		8B6305E222215C98005DA26F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305E122215C98005DA26F /* Constant.swift */; };
+		8B6305E42221620D005DA26F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305E32221620D005DA26F /* ImageView.swift */; };
+		8B6305EB2221805D005DA26F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305EA2221805C005DA26F /* Extensions.swift */; };
+		8B6305ED2221858B005DA26F /* DetailArtWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305EC2221858B005DA26F /* DetailArtWorkView.swift */; };
+		8B6305EF2221859A005DA26F /* DetailArtWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6305EE2221859A005DA26F /* DetailArtWorkView.xib */; };
+		8B6305F222218E4A005DA26F /* DetailDescCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6305F022218E4A005DA26F /* DetailDescCell.swift */; };
+		8B6305F322218E4A005DA26F /* DetailDescCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6305F122218E4A005DA26F /* DetailDescCell.xib */; };
+		DF6DB3CC90C2BBAF429F3DB0 /* Pods_MyItunesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96B2BEC975E8E082C2ECF55 /* Pods_MyItunesApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		67CECAEE5AFF4477701AE6EF /* Pods-MyItunesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyItunesApp.debug.xcconfig"; path = "Target Support Files/Pods-MyItunesApp/Pods-MyItunesApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8B4382EC222393DB0006F82D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B6305A0222130BD005DA26F /* MyItunesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyItunesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B6305A3222130BD005DA26F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B6305B1222130BF005DA26F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B6305BC22213713005DA26F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B6305CA22213810005DA26F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		8B6305CB22213810005DA26F /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		8B6305CE222138D4005DA26F /* HomeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListCell.swift; sourceTree = "<group>"; };
+		8B6305CF222138D4005DA26F /* HomeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeListCell.xib; sourceTree = "<group>"; };
+		8B6305D522213AC6005DA26F /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
+		8B6305D7222146DB005DA26F /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		8B6305D9222149B9005DA26F /* RestAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIServices.swift; sourceTree = "<group>"; };
+		8B6305DB22215114005DA26F /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		8B6305DC22215114005DA26F /* DetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailVC.xib; sourceTree = "<group>"; };
+		8B6305DF22215269005DA26F /* RealmServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServices.swift; sourceTree = "<group>"; };
+		8B6305E122215C98005DA26F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		8B6305E32221620D005DA26F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		8B6305EA2221805C005DA26F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8B6305EC2221858B005DA26F /* DetailArtWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArtWorkView.swift; sourceTree = "<group>"; };
+		8B6305EE2221859A005DA26F /* DetailArtWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailArtWorkView.xib; sourceTree = "<group>"; };
+		8B6305F022218E4A005DA26F /* DetailDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescCell.swift; sourceTree = "<group>"; };
+		8B6305F122218E4A005DA26F /* DetailDescCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailDescCell.xib; sourceTree = "<group>"; };
+		D96B2BEC975E8E082C2ECF55 /* Pods_MyItunesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyItunesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE6BDFD9DB02E2E67BD20308 /* Pods-MyItunesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyItunesApp.release.xcconfig"; path = "Target Support Files/Pods-MyItunesApp/Pods-MyItunesApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B63059D222130BD005DA26F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF6DB3CC90C2BBAF429F3DB0 /* Pods_MyItunesApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6273DFA23D8422EB282E14E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D96B2BEC975E8E082C2ECF55 /* Pods_MyItunesApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B630597222130BD005DA26F = {
+			isa = PBXGroup;
+			children = (
+				8B6305A2222130BD005DA26F /* MyItunesApp */,
+				8B6305A1222130BD005DA26F /* Products */,
+				AF435594C399C45061192F09 /* Pods */,
+				6273DFA23D8422EB282E14E0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8B6305A1222130BD005DA26F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305A0222130BD005DA26F /* MyItunesApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B6305A2222130BD005DA26F /* MyItunesApp */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305BE22213761005DA26F /* StoryBoards */,
+				8B6305BB22213713005DA26F /* Assets */,
+				8B6305BA222135A9005DA26F /* Utilities */,
+				8B6305E922218049005DA26F /* Extensions */,
+				8B6305B72221357C005DA26F /* Models */,
+				8B6305B82221357C005DA26F /* Services */,
+				8B6305B92221358F005DA26F /* ViewControllers */,
+				8B6305A3222130BD005DA26F /* AppDelegate.swift */,
+				8B6305B1222130BF005DA26F /* Info.plist */,
+			);
+			path = MyItunesApp;
+			sourceTree = "<group>";
+		};
+		8B6305B72221357C005DA26F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305D7222146DB005DA26F /* ResponseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B6305B82221357C005DA26F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305D32221398B005DA26F /* NetworkServices */,
+				8B6305D42221398B005DA26F /* RealmServices */,
+				8B6305D22221398B005DA26F /* RestAPIServices */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8B6305B92221358F005DA26F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305C9222137E9005DA26F /* HomeVC */,
+				8B6305C8222137E9005DA26F /* DetailVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B6305BA222135A9005DA26F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305E122215C98005DA26F /* Constant.swift */,
+				8B6305E32221620D005DA26F /* ImageView.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8B6305BB22213713005DA26F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305BC22213713005DA26F /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		8B6305BE22213761005DA26F /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				8B4382EC222393DB0006F82D /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		8B6305C8222137E9005DA26F /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305DB22215114005DA26F /* DetailVC.swift */,
+				8B6305DC22215114005DA26F /* DetailVC.xib */,
+				8B6305EC2221858B005DA26F /* DetailArtWorkView.swift */,
+				8B6305EE2221859A005DA26F /* DetailArtWorkView.xib */,
+				8B6305F022218E4A005DA26F /* DetailDescCell.swift */,
+				8B6305F122218E4A005DA26F /* DetailDescCell.xib */,
+			);
+			path = DetailVC;
+			sourceTree = "<group>";
+		};
+		8B6305C9222137E9005DA26F /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305CA22213810005DA26F /* HomeVC.swift */,
+				8B6305CB22213810005DA26F /* HomeVC.xib */,
+				8B6305CE222138D4005DA26F /* HomeListCell.swift */,
+				8B6305CF222138D4005DA26F /* HomeListCell.xib */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		8B6305D22221398B005DA26F /* RestAPIServices */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305D9222149B9005DA26F /* RestAPIServices.swift */,
+			);
+			path = RestAPIServices;
+			sourceTree = "<group>";
+		};
+		8B6305D32221398B005DA26F /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305D522213AC6005DA26F /* NetworkServices.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		8B6305D42221398B005DA26F /* RealmServices */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305DF22215269005DA26F /* RealmServices.swift */,
+			);
+			path = RealmServices;
+			sourceTree = "<group>";
+		};
+		8B6305E922218049005DA26F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B6305EA2221805C005DA26F /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AF435594C399C45061192F09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67CECAEE5AFF4477701AE6EF /* Pods-MyItunesApp.debug.xcconfig */,
+				FE6BDFD9DB02E2E67BD20308 /* Pods-MyItunesApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B63059F222130BD005DA26F /* MyItunesApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B6305B4222130BF005DA26F /* Build configuration list for PBXNativeTarget "MyItunesApp" */;
+			buildPhases = (
+				E2B4B99F2EB86421E8E29DAD /* [CP] Check Pods Manifest.lock */,
+				8B63059C222130BD005DA26F /* Sources */,
+				8B63059D222130BD005DA26F /* Frameworks */,
+				8B63059E222130BD005DA26F /* Resources */,
+				2D8B4A97D5210CBFFED7EA85 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyItunesApp;
+			productName = MyItunesApp;
+			productReference = 8B6305A0222130BD005DA26F /* MyItunesApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B630598222130BD005DA26F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Dan Navarez";
+				TargetAttributes = {
+					8B63059F222130BD005DA26F = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 8B63059B222130BD005DA26F /* Build configuration list for PBXProject "MyItunesApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B630597222130BD005DA26F;
+			productRefGroup = 8B6305A1222130BD005DA26F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B63059F222130BD005DA26F /* MyItunesApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B63059E222130BD005DA26F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B4382ED222393DB0006F82D /* LaunchScreen.storyboard in Resources */,
+				8B6305DE22215114005DA26F /* DetailVC.xib in Resources */,
+				8B6305CD22213810005DA26F /* HomeVC.xib in Resources */,
+				8B6305D1222138D4005DA26F /* HomeListCell.xib in Resources */,
+				8B6305F322218E4A005DA26F /* DetailDescCell.xib in Resources */,
+				8B6305EF2221859A005DA26F /* DetailArtWorkView.xib in Resources */,
+				8B6305BD22213714005DA26F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D8B4A97D5210CBFFED7EA85 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyItunesApp/Pods-MyItunesApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityLogger/AlamofireNetworkActivityLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyItunesApp/Pods-MyItunesApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2B4B99F2EB86421E8E29DAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyItunesApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B63059C222130BD005DA26F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B6305E42221620D005DA26F /* ImageView.swift in Sources */,
+				8B6305F222218E4A005DA26F /* DetailDescCell.swift in Sources */,
+				8B6305D8222146DB005DA26F /* ResponseModel.swift in Sources */,
+				8B6305E022215269005DA26F /* RealmServices.swift in Sources */,
+				8B6305D622213AC6005DA26F /* NetworkServices.swift in Sources */,
+				8B6305A4222130BD005DA26F /* AppDelegate.swift in Sources */,
+				8B6305D0222138D4005DA26F /* HomeListCell.swift in Sources */,
+				8B6305DA222149B9005DA26F /* RestAPIServices.swift in Sources */,
+				8B6305DD22215114005DA26F /* DetailVC.swift in Sources */,
+				8B6305CC22213810005DA26F /* HomeVC.swift in Sources */,
+				8B6305E222215C98005DA26F /* Constant.swift in Sources */,
+				8B6305ED2221858B005DA26F /* DetailArtWorkView.swift in Sources */,
+				8B6305EB2221805D005DA26F /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8B6305B2222130BF005DA26F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8B6305B3222130BF005DA26F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B6305B5222130BF005DA26F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67CECAEE5AFF4477701AE6EF /* Pods-MyItunesApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MN5PJ5RZ3V;
+				INFOPLIST_FILE = MyItunesApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dnavarez.MyItunesApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B6305B6222130BF005DA26F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE6BDFD9DB02E2E67BD20308 /* Pods-MyItunesApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MN5PJ5RZ3V;
+				INFOPLIST_FILE = MyItunesApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dnavarez.MyItunesApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B63059B222130BD005DA26F /* Build configuration list for PBXProject "MyItunesApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B6305B2222130BF005DA26F /* Debug */,
+				8B6305B3222130BF005DA26F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B6305B4222130BF005DA26F /* Build configuration list for PBXNativeTarget "MyItunesApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B6305B5222130BF005DA26F /* Debug */,
+				8B6305B6222130BF005DA26F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B630598222130BD005DA26F /* Project object */;
+}
