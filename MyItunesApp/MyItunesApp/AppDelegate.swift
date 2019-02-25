@@ -15,8 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    /*
+     *  Note that we use `willFinishLaunching`, not `didFinishLaunching`
+     */
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        guard let appWindow = window else {
+            fatalError("failed to create window")
+        }
+        
+        /*
+         *  The window will be restored either way, but assigning an identifier
+         *  adds extra information (e.g., last-used size classes) to the
+         *  restoration archive (see below)
+         */
+        appWindow.restorationIdentifier = "MainWindow"
+        
+        
         
         // Initializing network services so that we can re-use it's function that would check internet connection
         let _ = NetworkServices()
@@ -24,33 +39,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Setup Realm migration
         setupRealmMigrationConfig()
         
-        // Load the Home view controller
-        self.window?.rootViewController =  UINavigationController(rootViewController: HomeVC())
+        
+        let homeVC = HomeVC()
+        homeVC.restorationIdentifier = "HomeVC"
+        
+        let navVC = UINavigationController(rootViewController: homeVC)
+        navVC.restorationIdentifier = "NavController"
+        
+        appWindow.rootViewController = navVC
+        appWindow.makeKeyAndVisible()
         
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
 
     // MARK: - State Restoration protocol adopted by UIApplication delegate
     func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
@@ -61,27 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return true
     }
     
-    func application(_ application: UIApplication, willEncodeRestorableStateWith coder: NSCoder) {
-        // encode any state at the app delegate level
-        
-    }
-    
-    func application(_ application: UIApplication, didDecodeRestorableStateWith coder: NSCoder) {
-        UIApplication.shared.extendStateRestoration()
-        DispatchQueue.main.async {
-            UIApplication.shared.completeStateRestoration()
-        }
-        
-        if let restoreBundleVersion =   coder.decodeObject(forKey: UIApplication.stateRestorationBundleVersionKey) as? String{
-            print("Restore bundle version: \(restoreBundleVersion)")
-        }
-        
-        if let restoreUserInterfaceIdiom =   coder.decodeObject(forKey: UIApplication.stateRestorationUserInterfaceIdiomKey) as? Int{
-            print("Restore User Interface Idiom: \(restoreUserInterfaceIdiom)")
-        }
-    }
 
-    //Local migration for Realm
+    // Local migration for Realm
     func setupRealmMigrationConfig() {
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used

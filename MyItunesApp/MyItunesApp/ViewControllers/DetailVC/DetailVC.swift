@@ -20,12 +20,32 @@ class DetailVC: UIViewController {
     
     // MARK: - Public Properties
     //--------------------------------------------------------------------------------
-    var data: ResultsModel?
+    private var data: ResultsModel?
     //--------------------------------------------------------------------------------
-    
     
     // MARK: - ViewController life cycle
     //--------------------------------------------------------------------------------
+    
+    required init(data: ResultsModel) {
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
+        
+        restorationIdentifier = String(describing: type(of: self))
+        
+        /*
+         *  The class specified here must conform to `UIViewControllerRestoration`,
+         *  as explained below. If not set, you'd get a second chance to create the
+         *  view controller on demand in the app delegate.
+         */
+        restorationClass = type(of: self)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        data = nil
+        assert(false, "init(coder:) not supported. Please use init(data:) instead.")
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +59,6 @@ class DetailVC: UIViewController {
     //--------------------------------------------------------------------------------
     // Initialize properties of class file
     private func initProperties() {
-        self.restorationIdentifier = "DetailVC"
-        
         setupNavBar()
         setupTableView()
         updateArtWork()
@@ -113,54 +131,40 @@ extension DetailVC: UITableViewDataSource, UITableViewDelegate {
 //  MARK:- UIViewControllerRestoration
 //--------------------------------------------------------------------------------
 extension DetailVC: UIViewControllerRestoration {
+    
+    /*
+     *  Provide a new instance on demand, including decoding of its previous state,
+     *  which would else be done in `decodeRestorableStateWithCoder(coder:)`
+     */
     static func viewController(withRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIViewController? {
-        guard let restoredData = coder.decodeObject(forKey: "objData") as? ResultsModel else {
-            print("decoding Data Detail")
+        assert(String(describing: self) == identifierComponents.last, "unexpected restoration path: \(identifierComponents)")
+        
+        guard let trackId = coder.decodeObject(forKey: "trackId") as? String else {
+            print("decoding the trackId failed")
+            // it does not make sense to create an empty controller of this type:
+            // abort state restoration at this point
             return nil
         }
         
-        if let storyboard = coder.decodeObject(forKey: UIApplication.stateRestorationViewControllerStoryboardKey) as? UIStoryboard{
-            if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-                vc.data = restoredData
-                return vc;
-            }
+        if let data = RealmService.sharedInstance.realm.object(ofType: ResultsModel.self, forPrimaryKey: trackId) {
+            return self.init(data: data)
         }
-        return nil;
+        
+        return nil
     }
     
     override func encodeRestorableState(with coder: NSCoder) {
         super.encodeRestorableState(with: coder)
         // preserve user model object.
-        coder.encode(self.data, forKey: "objData")
+        coder.encode(self.data?.trackId, forKey: "trackId")
     }
     
-    override func decodeRestorableState(with coder: NSCoder) {
-        super.decodeRestorableState(with: coder)
-        if let objData = coder.decodeObject(forKey: "objData") as? ResultsModel {
-            self.data = objData
-        }
-    }
-    
-    override func applicationFinishedRestoringState() {
-        print("DetailVC finished restoring")
-        self.initProperties()
-        self.tableView.reloadData()
-        
-    }
-    
-//    static func viewController(withRestorationIdentifierPath identifierComponents: [Any], coder: NSCoder) -> UIViewController? {
-//        guard let restoredData = coder.decodeObject(forKey: "objData") as? ResultsModel else {
-//            print("decoding Data Detail")
-//            return nil
-//        }
-//
-//        if let storyboard = coder.decodeObject(forKey: UIStateRestorationViewControllerStoryboardKey) as? UIStoryboard{
-//            if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
-//                vc.objUser = restoredUser
-//                return vc;
-//            }
-//        }
-//        return nil;
+    /*
+     *  We have decoded our state in `viewControllerWithRestorationIdentifierPath(_:coder:)`
+     *  already.
+     */
+//    override func decodeRestorableState(with coder: NSCoder) {
+//        super.decodeRestorableState(with: coder)
 //    }
 }
 //--------------------------------------------------------------------------------

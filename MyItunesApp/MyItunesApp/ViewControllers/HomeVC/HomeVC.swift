@@ -29,9 +29,24 @@ class HomeVC: UIViewController {
     
     // MARK: - ViewController life cycle
     //--------------------------------------------------------------------------------
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        restorationIdentifier = String(describing: type(of: self))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         initProperties()
     }
     //--------------------------------------------------------------------------------
@@ -42,7 +57,6 @@ class HomeVC: UIViewController {
     //--------------------------------------------------------------------------------
     // Initialize properties of class file
     private func initProperties() {
-        self.restorationIdentifier = "HomeVC"
         
         setupNavBar()
         setupTableView()
@@ -53,7 +67,6 @@ class HomeVC: UIViewController {
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        
         tableView.separatorStyle = .none
         
         tableView.register(UINib(nibName: "HomeListCell", bundle: nil), forCellReuseIdentifier: "HomeListCell")
@@ -142,10 +155,10 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = dataSource[indexPath.row]
         
-        let detailVC = DetailVC()
-        detailVC.data = data
+        let detailVC = DetailVC(data: data)
         
-        pushViewController("", detailVC, animated: true)
+//        pushViewController("", detailVC, animated: true)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -162,23 +175,24 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
 //  MARK:- UIViewControllerRestoration
 //--------------------------------------------------------------------------------
 extension HomeVC {
+    
     override func encodeRestorableState(with coder: NSCoder) {
         super.encodeRestorableState(with: coder)
-        
-        coder.encode(self.dataSource, forKey: "dataSource")
     }
-    
+
     override func decodeRestorableState(with coder: NSCoder) {
         super.decodeRestorableState(with: coder)
+        let result = RealmService.sharedInstance.realm.objects(ResultsModel.self)
         
-        if let dataSource = coder.decodeObject(forKey: "dataSource") as? [ResultsModel]{
-            self.dataSource = dataSource
+        if result.count > 0 {
+            // We are mapping the array result from Results<Element> into [ResultsModel]
+            self.dataSource = result.map({$0})
         }
     }
-    
-    override func applicationFinishedRestoringState() {
-        print("HomeVC finished restoring")
-        self.tableView.reloadData()
-    }
+
+//    override func applicationFinishedRestoringState() {
+//        print("HomeVC finished restoring")
+//        self.tableView.reloadData()
+//    }
 }
 //--------------------------------------------------------------------------------
