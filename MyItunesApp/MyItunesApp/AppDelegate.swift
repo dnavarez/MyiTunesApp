@@ -41,8 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         
         let homeVC = HomeVC()
-        homeVC.restorationIdentifier = "HomeVC"
-        
         let navVC = UINavigationController(rootViewController: homeVC)
         navVC.restorationIdentifier = "NavController"
         
