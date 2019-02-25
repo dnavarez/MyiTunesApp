@@ -33,9 +33,6 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         initProperties()
-        setupNavBar()
-        setupTableView()
-        loadData()
     }
     //--------------------------------------------------------------------------------
 
@@ -45,7 +42,11 @@ class HomeVC: UIViewController {
     //--------------------------------------------------------------------------------
     // Initialize properties of class file
     private func initProperties() {
+        self.restorationIdentifier = "HomeVC"
         
+        setupNavBar()
+        setupTableView()
+        loadData()
     }
     
     // Setup the table view properties
@@ -153,6 +154,31 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+}
+//--------------------------------------------------------------------------------
+
+
+//  MARK:- UIViewControllerRestoration
+//--------------------------------------------------------------------------------
+extension HomeVC {
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        
+        coder.encode(self.dataSource, forKey: "dataSource")
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        
+        if let dataSource = coder.decodeObject(forKey: "dataSource") as? [ResultsModel]{
+            self.dataSource = dataSource
+        }
+    }
+    
+    override func applicationFinishedRestoringState() {
+        print("HomeVC finished restoring")
+        self.tableView.reloadData()
     }
 }
 //--------------------------------------------------------------------------------

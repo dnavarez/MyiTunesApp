@@ -15,9 +15,6 @@ class DetailVC: UIViewController {
     //--------------------------------------------------------------------------------
     // IBOutlets
     @IBOutlet private weak var tableView: UITableView!
-    
-    // Regular variables
-    private var dataSource: [ResultsModel] = []
     //--------------------------------------------------------------------------------
     
     
@@ -33,8 +30,6 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         
         initProperties()
-        setupNavBar()
-        setupTableView()
     }
     //--------------------------------------------------------------------------------
     
@@ -44,6 +39,10 @@ class DetailVC: UIViewController {
     //--------------------------------------------------------------------------------
     // Initialize properties of class file
     private func initProperties() {
+        self.restorationIdentifier = "DetailVC"
+        
+        setupNavBar()
+        setupTableView()
         updateArtWork()
     }
     
@@ -107,5 +106,61 @@ extension DetailVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+}
+//--------------------------------------------------------------------------------
+
+
+//  MARK:- UIViewControllerRestoration
+//--------------------------------------------------------------------------------
+extension DetailVC: UIViewControllerRestoration {
+    static func viewController(withRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIViewController? {
+        guard let restoredData = coder.decodeObject(forKey: "objData") as? ResultsModel else {
+            print("decoding Data Detail")
+            return nil
+        }
+        
+        if let storyboard = coder.decodeObject(forKey: UIApplication.stateRestorationViewControllerStoryboardKey) as? UIStoryboard{
+            if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
+                vc.data = restoredData
+                return vc;
+            }
+        }
+        return nil;
+    }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        // preserve user model object.
+        coder.encode(self.data, forKey: "objData")
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        if let objData = coder.decodeObject(forKey: "objData") as? ResultsModel {
+            self.data = objData
+        }
+    }
+    
+    override func applicationFinishedRestoringState() {
+        print("DetailVC finished restoring")
+        self.initProperties()
+        self.tableView.reloadData()
+        
+    }
+    
+//    static func viewController(withRestorationIdentifierPath identifierComponents: [Any], coder: NSCoder) -> UIViewController? {
+//        guard let restoredData = coder.decodeObject(forKey: "objData") as? ResultsModel else {
+//            print("decoding Data Detail")
+//            return nil
+//        }
+//
+//        if let storyboard = coder.decodeObject(forKey: UIStateRestorationViewControllerStoryboardKey) as? UIStoryboard{
+//            if let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC {
+//                vc.objUser = restoredUser
+//                return vc;
+//            }
+//        }
+//        return nil;
+//    }
 }
 //--------------------------------------------------------------------------------

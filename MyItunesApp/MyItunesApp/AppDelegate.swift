@@ -52,7 +52,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // MARK: - State Restoration protocol adopted by UIApplication delegate
+    func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
+        return true
+    }
     
+    func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+        return true
+    }
+    
+    func application(_ application: UIApplication, willEncodeRestorableStateWith coder: NSCoder) {
+        // encode any state at the app delegate level
+        
+    }
+    
+    func application(_ application: UIApplication, didDecodeRestorableStateWith coder: NSCoder) {
+        UIApplication.shared.extendStateRestoration()
+        DispatchQueue.main.async {
+            UIApplication.shared.completeStateRestoration()
+        }
+        
+        if let restoreBundleVersion =   coder.decodeObject(forKey: UIApplication.stateRestorationBundleVersionKey) as? String{
+            print("Restore bundle version: \(restoreBundleVersion)")
+        }
+        
+        if let restoreUserInterfaceIdiom =   coder.decodeObject(forKey: UIApplication.stateRestorationUserInterfaceIdiomKey) as? Int{
+            print("Restore User Interface Idiom: \(restoreUserInterfaceIdiom)")
+        }
+    }
+
     //Local migration for Realm
     func setupRealmMigrationConfig() {
         let config = Realm.Configuration(
