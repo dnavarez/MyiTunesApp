@@ -23,3 +23,8 @@ Also in regards to this but had not implemented it here as it's not common, I ac
 Database: Realm
 
 In regards to saving the api json response, i'm using Realm platform as an alternative to Core Data
+
+
+App State Restoration:
+
+Using the Apple saving and restoring application state on iOS. On codes has description for the usage.
