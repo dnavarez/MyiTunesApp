@@ -11,7 +11,7 @@ Composition Design pattern helps to separate some procedures on view-controllers
 Also in regards to this but had not implemented it here as it's not common, I actually had a sample prototype structure for my project which I'm exploiting the use of "extension". Wherein you can separate class files for Methods, Events, Delegates, etc. In this way everything is separated and easily to debug/look on where to search for specific functions. Sample as seen below in folders and files segregation.
 
 
-ViewControllers
+./ViewControllers
   - SampleVC
   - SampleVC.swift
   - SVC.Methods.swift  	//SVC is the namespace for SampleVC
