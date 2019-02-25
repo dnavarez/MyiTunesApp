@@ -29,7 +29,6 @@ class HomeVC: UIViewController {
     
     // MARK: - ViewController life cycle
     //--------------------------------------------------------------------------------
-    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         commonInit()
@@ -156,9 +155,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         let data = dataSource[indexPath.row]
         
         let detailVC = DetailVC(data: data)
-        
-//        pushViewController("", detailVC, animated: true)
-        navigationController?.pushViewController(detailVC, animated: true)
+        pushViewController("", detailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

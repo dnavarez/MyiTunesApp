@@ -10,6 +10,8 @@ import UIKit
 import RealmSwift
 import AlamofireNetworkActivityLogger
 
+
+//--------------------------------------------------------------------------------
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
@@ -32,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         appWindow.restorationIdentifier = "MainWindow"
         
         
-        
         // Initializing network services so that we can re-use it's function that would check internet connection
         let _ = NetworkServices()
         
@@ -43,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let homeVC = HomeVC()
         let navVC = UINavigationController(rootViewController: homeVC)
         navVC.restorationIdentifier = "NavController"
-        
+
         appWindow.rootViewController = navVC
         appWindow.makeKeyAndVisible()
         
@@ -59,8 +60,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
         return true
     }
-    
+}
+//--------------------------------------------------------------------------------
 
+
+// MARK: - ViewController life cycle
+//--------------------------------------------------------------------------------
+extension AppDelegate {
+    
     // Local migration for Realm
     func setupRealmMigrationConfig() {
         let config = Realm.Configuration(
@@ -84,4 +91,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         print("Realm Path : \(String(describing: config.fileURL))")
     }
 }
-
+//--------------------------------------------------------------------------------

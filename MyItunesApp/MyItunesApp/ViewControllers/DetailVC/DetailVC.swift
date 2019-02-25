@@ -23,6 +23,7 @@ class DetailVC: UIViewController {
     private var data: ResultsModel?
     //--------------------------------------------------------------------------------
     
+    
     // MARK: - ViewController life cycle
     //--------------------------------------------------------------------------------
     
@@ -52,7 +53,6 @@ class DetailVC: UIViewController {
         initProperties()
     }
     //--------------------------------------------------------------------------------
-    
     
     
     // MARK: - PRIVATE METHODS
@@ -128,7 +128,7 @@ extension DetailVC: UITableViewDataSource, UITableViewDelegate {
 //--------------------------------------------------------------------------------
 
 
-//  MARK:- UIViewControllerRestoration
+// MARK:- UIViewControllerRestoration
 //--------------------------------------------------------------------------------
 extension DetailVC: UIViewControllerRestoration {
     
@@ -139,13 +139,14 @@ extension DetailVC: UIViewControllerRestoration {
     static func viewController(withRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIViewController? {
         assert(String(describing: self) == identifierComponents.last, "unexpected restoration path: \(identifierComponents)")
         
-        guard let trackId = coder.decodeObject(forKey: "trackId") as? String else {
+        guard let trackId = coder.decodeObject(forKey: "trackId") as? Int else {
             print("decoding the trackId failed")
             // it does not make sense to create an empty controller of this type:
             // abort state restoration at this point
             return nil
         }
         
+        // Let's get the data filtered by trackId on database
         if let data = RealmService.sharedInstance.realm.object(ofType: ResultsModel.self, forPrimaryKey: trackId) {
             return self.init(data: data)
         }
@@ -163,8 +164,8 @@ extension DetailVC: UIViewControllerRestoration {
      *  We have decoded our state in `viewControllerWithRestorationIdentifierPath(_:coder:)`
      *  already.
      */
-//    override func decodeRestorableState(with coder: NSCoder) {
-//        super.decodeRestorableState(with: coder)
-//    }
+    // override func decodeRestorableState(with coder: NSCoder) {
+    //     super.decodeRestorableState(with: coder)
+    // }
 }
 //--------------------------------------------------------------------------------
