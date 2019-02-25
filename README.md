@@ -12,11 +12,11 @@ Also in regards to this but had not implemented it here as it's not common, I ac
 
 
 ViewControllers
-	- SampleVC
-    	- SampleVC.swift
-    	- SVC.Methods.swift  	//SVC is the namespace for SampleVC
-    	- SVC.Events.swift
-    	- SVC.Delegates.swift
+  - SampleVC
+  - SampleVC.swift
+  - SVC.Methods.swift  	//SVC is the namespace for SampleVC
+  - SVC.Events.swift
+  - SVC.Delegates.swift
 
 
 
